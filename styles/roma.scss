@@ -19,7 +19,15 @@ body {
   cursor: pointer;
   font-size: $size/2;
   line-height: $size2;
-}
-.active {
-  background: #DDD;
+  
+  &:hover {
+    background: #F8F8F8;    
+    &.active {
+      background: #DDD;
+    }
+  }
+  &.active {
+    background: #DDD;
+    border-color: #CCC;
+  }
 }
