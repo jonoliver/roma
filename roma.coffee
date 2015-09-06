@@ -12,7 +12,7 @@ if Meteor.isClient
       handleStart 5, e
       return
     'click #long_break': (e)->
-      handleStart 10, e
+      handleStart 15, e
       return
     'click #mega_short_break': (e)->
       handleStart 1, e

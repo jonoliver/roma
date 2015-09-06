@@ -9,7 +9,7 @@ class Roma.Timer
     @seconds = 0
     @started = false
     @interval = null
-    @intervalTime = 10
+    @intervalTime = 1000
     @events = extend {
       onUpdate: ->
       onStart: ->
