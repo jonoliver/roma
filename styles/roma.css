@@ -1,0 +1,9 @@
+/* CSS declarations go here */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#timer_output {
+  font-size: 5em;
+  margin: 0;
+}

@@ -1,0 +1,22 @@
+<head>
+  <title>roma</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <h1>Pomiodoro</h1>
+
+  {{> timer}}
+  <audio id="pacman" src="audio/pacman_death.wav"></audio>
+</body>
+
+<template name="timer">
+  <button id='start_pomodoro'>pomodoro</button>
+  <button id='start_short_break'>short break</button>
+  <button id='start_long_break'>long break</button>
+  <button id='start_mega_short_break'>mega short break</button>
+  <h1 id='timer_output'>{{time}}</h1>
+  {{#if complete}}
+    <p>done</p>
+  {{/if}}
+</template>
