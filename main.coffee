@@ -5,9 +5,11 @@ init = ->
       return
     onStart: ->
       Session.set 'complete', false
+      document.title = 'go!'
       return
     onComplete: ->
       Session.set 'complete', true
+      document.title = 'done!'
       return
 )
   return

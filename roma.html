@@ -11,10 +11,10 @@
 </body>
 
 <template name="timer">
-  <button id='start_pomodoro'>pomodoro</button>
-  <button id='start_short_break'>short break</button>
-  <button id='start_long_break'>long break</button>
-  <button id='start_mega_short_break'>mega short break</button>
+  <a id='start_pomodoro' class='start'>p</a>
+  <a id='start_short_break' class='start'>s</a>
+  <a id='start_long_break' class='start'>l</a>
+  <a id='start_mega_short_break' class='start'>.</a>
   <h1 id='timer_output'>{{time}}</h1>
   {{#if complete}}
     <p>done</p>
