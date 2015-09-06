@@ -12,3 +12,4 @@ velocity:console-reporter
 velocity:html-reporter
 coffeescript
 sanjo:jasmine
+fourseven:scss

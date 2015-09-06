@@ -5,16 +5,16 @@ if Meteor.isClient
     complete: ->
       Session.get 'complete'
   Template.timer.events
-    'click #start_pomodoro': (e)->
+    'click #pomodoro': (e)->
       handleStart 25, e
       return
-    'click #start_short_break': (e)->
+    'click #short_break': (e)->
       handleStart 5, e
       return
-    'click #start_long_break': (e)->
+    'click #long_break': (e)->
       handleStart 10, e
       return
-    'click #start_mega_short_break': (e)->
+    'click #mega_short_break': (e)->
       handleStart 1, e
       return
   
