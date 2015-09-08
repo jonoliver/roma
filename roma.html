@@ -7,6 +7,7 @@
   <h1>Pomiodoro</h1>
 
   {{> timer}}
+  {{> users}}
   <audio id="pacman" src="audio/pacman_death.wav"></audio>
 </body>
 
@@ -19,4 +20,17 @@
   {{#if complete}}
     <p>done</p>
   {{/if}}
+</template>
+<template name="users">
+  {{#if edit}}
+    <input type="text" name="name" placeholder="Enter Name" value={{user.profile.name}} />
+  {{else}}
+    <h2>Hi, {{user.profile.name}} <a class='edit'>edit</a></h2>
+  {{/if}}
+  {{#with usersOnline}}
+    <p>{{this.count}} users online</p>
+    {{#each this}}
+      {{#if profile.name}}<p>{{profile.name}}</p>{{/if}}
+    {{/each}}  
+  {{/with}}
 </template>

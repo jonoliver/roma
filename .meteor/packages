@@ -13,3 +13,7 @@ velocity:html-reporter
 coffeescript
 sanjo:jasmine
 fourseven:scss
+benjaminrh:user-session
+artwells:accounts-guest
+accounts-ui
+mizzao:user-status

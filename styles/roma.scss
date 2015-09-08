@@ -1,7 +1,13 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
-
+a {
+  cursor: pointer;
+}
+.edit {
+  text-decoration: underline;
+  font-size: .8em;
+}
 #timer_output {
   font-size: 5em;
   margin: 0;
