@@ -18,6 +18,7 @@ if Meteor.isClient
       handleStart 1, e
     
   handleStart = (minutes, event)->
+    Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.type':event.target.id}})
     Roma.timer.reset minutes
     $('.active').removeClass('active')
     $(event.target).addClass('active')

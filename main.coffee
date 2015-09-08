@@ -7,6 +7,7 @@ init = ->
       document.title = 'go!'
     onComplete: ->
       Session.set 'complete', true
+      Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.type':null}})
       document.title = 'done!'
 )
 
