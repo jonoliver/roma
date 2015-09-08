@@ -1,3 +1,5 @@
+Meteor.subscribe("userStatus");
+
 Template.users.helpers
   usersOnline: ->
     Meteor.users.find({ "status.online": true })

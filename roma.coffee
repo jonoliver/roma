@@ -1,5 +1,4 @@
 if Meteor.isClient
-  Meteor.subscribe("userStatus");
   Template.timer.helpers
     time: ->
       Session.get 'time'
