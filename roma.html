@@ -34,6 +34,7 @@
         <p>
           {{profile.name}}
           {{#if profile.pomo.type}}is on a {{profile.pomo.type}}{{else}}is a slacker{{/if}}
+          {{#if profile.pomo.minute}}for {{profile.pomo.minute}} more minutes{{/if}}
         </p>
       {{/if}}
     {{/each}}  

@@ -14,6 +14,7 @@ class Roma.Timer
       onUpdate: ->
       onStart: ->
       onComplete: ->
+      onMinute: ->
     }, events
 
   start: () ->
@@ -23,6 +24,8 @@ class Roma.Timer
       , @intervalTime
       @started = true
       @events.onStart()
+      @events.onMinute(@minutes)
+
     
   stop: () ->
     Meteor.clearInterval @interval
@@ -40,7 +43,8 @@ class Roma.Timer
       if @minutes == 0
         @stop()
         @events.onComplete()
-      else 
+      else
+        @events.onMinute(@minutes)
         @seconds = 59
         @minutes--
     else

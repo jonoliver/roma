@@ -8,7 +8,10 @@ init = ->
     onComplete: ->
       Session.set 'complete', true
       Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.type':null}})
+      Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.minute':null}})
       document.title = 'done!'
+    onMinute: (m)->    
+      Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.minute':m}})
 )
 
 if Meteor.isClient
