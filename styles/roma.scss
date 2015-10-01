@@ -1,12 +1,15 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+input {
+  font-family: 'Open Sans', sans-serif;
+  &:focus {
+    outline: 0;
+  }
+}
+
 a {
   cursor: pointer;
-}
-.edit {
-  text-decoration: underline;
-  font-size: .8em;
 }
 #timer_output {
   font-size: 5em;
@@ -35,5 +38,13 @@ a {
   &.active {
     background: #DDD;
     border-color: #CCC;
+  }
+}
+
+#current_user {
+  font-size: 24px;
+  input {
+    font-size: 24px;
+    width: 200px;
   }
 }

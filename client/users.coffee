@@ -15,3 +15,5 @@ Template.users.events
     Session.set('edit', false)
   'click .edit' : ->
     Session.set('edit', true)
+  'click .cancel' : ->
+    Session.set('edit', false)

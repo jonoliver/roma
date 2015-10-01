@@ -1,6 +1,7 @@
 <head>
   <title>roma</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -22,11 +23,16 @@
   {{/if}}
 </template>
 <template name="users">
-  {{#if edit}}
-    <input type="text" name="name" placeholder="Enter Name" value={{user.profile.name}} />
-  {{else}}
-    <h2>Hi, {{user.profile.name}} <a class='edit'>edit</a></h2>
-  {{/if}}
+  <div id="current_user">
+    {{#if edit}}
+      <p>
+        <input type="text" name="name" placeholder="Enter Name" value={{user.profile.name}} autofocus />
+        <a class='cancel fa fa-ban'></a>
+      </p>
+    {{else}}
+      <p>Hi, {{user.profile.name}} <a class='edit fa fa-pencil'></a></p>
+    {{/if}}    
+  </div>
   {{#with usersOnline}}
     <p>{{this.count}} users online</p>
     {{#each this}}
