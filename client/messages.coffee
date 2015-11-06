@@ -5,3 +5,5 @@ Template.messages.helpers
       user = Meteor.users.findOne({'_id': fromUserId})
       {name: user.profile.name, messages: messages}
     messages
+  inPomo: ->
+    Meteor.user().profile.pomo.type == "pomodoro"

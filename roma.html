@@ -56,11 +56,13 @@
   {{/with}}
 </template>
 <template name="messages">
-  <h3>You have {{messageGroups.length}} messages</h3>
-  {{#each messageGroups}}
-    <h4>{{ this.name }}</h4>
-    {{#each messages }}
-      <p>{{ this.message }}</p>
+  {{#unless inPomo}}
+    <h3>You have {{messageGroups.length}} messages</h3>
+    {{#each messageGroups}}
+      <h4>{{ this.name }}</h4>
+      {{#each messages }}
+        <p>{{ this.message }}</p>
+      {{/each}}
     {{/each}}
-  {{/each}}
+  {{/unless}}
 </template>
