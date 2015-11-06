@@ -26,9 +26,10 @@ Template.users.events
   # 'keyup .message_text': (e)->
   'submit .message_form': (e)->
     e.preventDefault()
-    notification = {
+    toUserId = e.target.elements.user.value
+    message = {
       from: Meteor.user()._id
       message: e.target.elements.message.value
     }
-    Meteor.users.update({_id:e.target.elements.user.value}, { $push:{"profile.notifications":notification}}, {multi: true} )
+    Meteor.call 'sendMessage', toUserId, message
     e.target.elements.message.value = ""
