@@ -7,7 +7,7 @@ Template.users.helpers
     Meteor.user()
   edit: =>
     user = Meteor.user()
-    Session.get('edit') || user.profile.name == undefined || user.profile.name == ""
+    Session.get('edit') || user == undefined || user.profile.name == undefined || user.profile.name == ""
 
 Template.users.events
   'change, blur [name="name"]': (e)-> 
