@@ -7,7 +7,7 @@ Template.users.helpers
     Meteor.user()
   edit: =>
     user = Meteor.user()
-    Session.get('edit') || user.profile.name == undefined || user.profile.name == ""
+    Session.get('edit') || user == undefined || user.profile.name == undefined || user.profile.name == ""
   messageUser: (args) ->
     Session.get('send_message_user') == args.hash.id
 
