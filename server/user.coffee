@@ -1,3 +1,8 @@
+Meteor.publish "userData", () ->
+  return Meteor.users.find
+    id: this.userId
+    fields: {'messages': 1}
+
 Meteor.publish "userStatus", () ->
   return Meteor.users.find
     "status.online": true
