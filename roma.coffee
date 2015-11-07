@@ -10,6 +10,7 @@ if Meteor.isClient
   Template.timer.events
     'click #pomodoro': (e)->
       handleStart 25, e
+      Meteor.call 'clearMessages'
     'click #short_break': (e)->
       handleStart 5, e
     'click #long_break': (e)->
