@@ -1,0 +1,32 @@
+<template name="users">
+  <div id="current_user">
+    {{#if edit}}
+      <p>
+        <input type="text" name="name" placeholder="Enter Name" value={{user.profile.name}} autofocus />
+        <a class='cancel fa fa-ban'></a>
+      </p>
+    {{else}}
+      <p>Hi, {{user.profile.name}} <a class='edit fa fa-pencil'></a></p>
+    {{/if}}    
+  </div>
+  {{#with usersOnline}}
+    <p>{{this.count}} users online</p>
+    {{#each this}}
+      {{#if profile.name}}
+        <p class='send_message' data-user-id='{{this._id}}'>
+          {{profile.name}}
+          {{#if profile.pomo.type}}is on a {{profile.pomo.type}}{{else}}is a slacker{{/if}}
+          {{#if profile.pomo.minute}}for {{profile.pomo.minute}} more minutes{{/if}}
+        </p>
+        {{#if messageUser id=this._id}}
+          Send {{profile.name}} a message:
+          <form class="message_form">
+            <input type="text" name="message">
+            <input type="hidden" name="user" value="{{this._id}}">
+            <a class="cancel_message">x</a>            
+          </form>
+        {{/if}}
+      {{/if}}
+    {{/each}}  
+  {{/with}}
+</template>

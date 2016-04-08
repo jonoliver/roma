@@ -1,0 +1,10 @@
+<template name="timer">
+  <a id='pomodoro' class='start'>p</a>
+  <a id='short_break' class='start'>s</a>
+  <a id='long_break' class='start'>l</a>
+  <a id='mega_short_break' class='start'>.</a>
+  <h1 id='timer_output'>{{time}}</h1>
+  {{#if complete}}
+    <p>done</p>
+  {{/if}}
+</template>

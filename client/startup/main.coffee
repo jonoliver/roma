@@ -14,6 +14,5 @@ init = ->
       Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.minute':m}})
 )
 
-if Meteor.isClient
-  Meteor.startup ->
-    init()
+Meteor.startup ->
+  init()
