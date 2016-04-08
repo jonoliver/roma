@@ -7,3 +7,5 @@ Template.messages.helpers
     messages
   inPomo: ->
     Meteor.user().profile.pomo.type == "pomodoro"
+  isEnabled: ->
+    Roma.isEnabled('messaging')

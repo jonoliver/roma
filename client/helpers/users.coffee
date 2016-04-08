@@ -11,6 +11,8 @@ Template.users.helpers
     Session.get('edit') || user.profile.name == undefined || user.profile.name == ""
   messageUser: (args) ->
     Session.get('send_message_user') == args.hash.id
+  messagingClass: ->
+    if Roma.isEnabled('messaging') then 'send_message' else ''
 
 Template.users.events
   'change [name="name"], blur [name="name"]': (e)-> 
@@ -21,8 +23,10 @@ Template.users.events
   'click .cancel' : ->
     Session.set('edit', false)
   'click .send_message': (e)->
+    return unless Roma.isEnabled('messaging')
     Session.set('send_message_user', e.target.dataset.userId)    
   'click .cancel_message': (e)->
+    return unless Roma.isEnabled('messaging')
     Session.set('send_message_user', null)
   # 'keyup .message_text': (e)->
   'submit .message_form': (e)->

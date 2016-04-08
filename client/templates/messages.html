@@ -1,4 +1,5 @@
 <template name="messages">
+  {{#if isEnabled}}
   {{#unless inPomo}}
     <h3>You have {{messageGroups.length}} messages</h3>
     {{#each messageGroups}}
@@ -8,4 +9,5 @@
       {{/each}}
     {{/each}}
   {{/unless}}
+  {{/if}}
 </template>
