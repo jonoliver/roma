@@ -1,8 +1,3 @@
-extend = (object, properties) ->
-  for key, val of properties
-    object[key] = val
-  object
-  
 class Roma.Timer
   constructor: (minutes, events) ->
     @minutes = minutes || 25
@@ -10,7 +5,7 @@ class Roma.Timer
     @started = false
     @interval = null
     @intervalTime = 1000
-    @events = extend {
+    @events = _.extend {
       onUpdate: ->
       onStart: ->
       onComplete: ->
