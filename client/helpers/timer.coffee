@@ -5,6 +5,8 @@ Template.timer.helpers
     Session.get 'complete'
   usersOnline: ->
     Meteor.users.find({ "status.online": true })
+  itTestingEnabled: ->
+    Roma.isEnabled('testing')
   
 Template.timer.events
   'click #pomodoro': (e)->
