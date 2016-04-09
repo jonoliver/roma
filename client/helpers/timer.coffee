@@ -5,6 +5,14 @@ Template.timer.helpers
     Session.get 'complete'
   isTestingEnabled: ->
     Roma.isEnabled('testing')
+  headerText: ->
+    pomoType = Meteor.user().profile.pomo.type
+    switch pomoType
+      when 'pomodoro' then 'Focus time!'
+      when 'long_break' then 'Take a long break!'
+      when 'short_break' then 'Take a short break!'
+      when 'mega_short_break' then 'Take a mega short break!'
+      else 'Get started!'
   
 Template.timer.events
   'click #pomodoro': (e)->
