@@ -51,7 +51,7 @@ class Roma.Timer
 
   updateCounts: ->
     currentTime = new Date().getTime()
-    @totalSeconds = Math.floor((currentTime - @startingTime)/100)
+    @totalSeconds = Math.floor((currentTime - @startingTime)/1000)
     @seconds = @totalSeconds % 60
     @minutes = Math.floor(@totalSeconds / 60)
 
