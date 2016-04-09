@@ -13,6 +13,8 @@ Template.users.helpers
     Session.get('send_message_user') == args.hash.id
   messagingClass: ->
     if Roma.isEnabled('messaging') then 'send_message' else ''
+  friendlyPomoType: (pomoType)->
+    pomoType.split('_').join(' ')
 
 Template.users.events
   'change [name="name"], blur [name="name"]': (e)-> 
