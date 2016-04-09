@@ -1,3 +1,7 @@
+$green: #8BC34A;
+$yellow: #F9BF00;
+$red: #FF5722;
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -17,6 +21,7 @@ a {
 }
 
 .start {
+  text-transform: uppercase;
   $size: 25px;
   $size2: $size*2;
   border: 1px solid #DDD;
@@ -39,6 +44,29 @@ a {
     background: #DDD;
     border-color: #CCC;
   }
+}
+
+@mixin start-button($color) {
+  color: $color;
+  border: 1px solid $color;
+  font-weight: bold;
+  &:hover {
+    background: lighten($color, 40);
+  }
+  &.active {
+    background: $color;
+    color: white;
+  }
+}
+
+#pomodoro {
+  @include start-button($green);
+}
+#short_break {
+  @include start-button($yellow);
+}
+#long_break {
+  @include start-button($red);
 }
 
 #current_user {
