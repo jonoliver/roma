@@ -3,9 +3,7 @@ Template.timer.helpers
     Session.get 'time'
   complete: ->
     Session.get 'complete'
-  usersOnline: ->
-    Meteor.users.find({ "status.online": true })
-  itTestingEnabled: ->
+  isTestingEnabled: ->
     Roma.isEnabled('testing')
   
 Template.timer.events
