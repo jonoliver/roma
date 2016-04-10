@@ -1,5 +1,5 @@
 init = ->
-  Roma.timer = new (Roma.Timer)(25,
+  Roma.timer = new (Roma.Timer)(
     onUpdate: (t) ->
       Session.set 'time', t
     onStart: ->

@@ -1,6 +1,6 @@
 class Roma.Timer
-  constructor: (minutes, events) ->
-    @totalMinutes = minutes || 25
+  constructor: (events={}) ->
+    @totalMinutes = 25
     @minutes = 0
     @seconds = 0
     @started = false
