@@ -19,3 +19,8 @@ Meteor.startup ->
   init()
   Notification.requestPermission()
 
+  if Roma.isEnabled('testing')
+    # speed up the timers for manual testing, we don't have all day!
+    _.each Roma.intervals, ((o) -> o.duration = 1)
+    Roma.timer.displaySpeed = 100
+

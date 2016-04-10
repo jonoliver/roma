@@ -1,6 +1,6 @@
 {
   "public": {
-    "testingEnabled": true,
+    "testingEnabled": false,
     "messagingEnabled": false
   }
 }

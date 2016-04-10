@@ -3,8 +3,6 @@ Template.timer.helpers
     Session.get 'time'
   complete: ->
     Session.get 'complete'
-  isTestingEnabled: ->
-    Roma.isEnabled('testing')
   headerText: ->
     pomoType = Meteor.user().profile.pomo.type
     return Roma.intervals[pomoType].headerDuringMessage if pomoType
@@ -20,8 +18,6 @@ Template.timer.events
   'click #short_break': (e)->
     handleStart e
   'click #long_break': (e)->
-    handleStart e
-  'click #mega_short_break': (e)->
     handleStart e
   
 handleStart = (event)->
