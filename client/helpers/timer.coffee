@@ -15,20 +15,21 @@ Template.timer.helpers
     
 Template.timer.events
   'click #pomodoro': (e)->
-    handleStart Roma.intervals.pomodoro.duration, e
+    handleStart e
     Meteor.call 'clearMessages'
   'click #short_break': (e)->
-    handleStart Roma.intervals.short_break.duration, e
+    handleStart e
   'click #long_break': (e)->
-    handleStart Roma.intervals.long_break.duration, e
+    handleStart e
   'click #mega_short_break': (e)->
-    handleStart Roma.intervals.mega_short_break.duration, e
+    handleStart e
   
-handleStart = (minutes, event)->
-  Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.type':event.target.id}})
-  # Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.last_type':event.target.id}})
-  Session.set 'last_pomo_type', event.target.id
-  Roma.timer.reset minutes
+handleStart = (event)->
+  id = event.target.id
+  Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.type':id}})
+  # Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.last_type':id}})
+  Session.set 'last_pomo_type', id
+  Roma.timer.reset Roma.intervals[id].duration
   $('.active').removeClass('active')
   $(event.target).addClass('active')
 
