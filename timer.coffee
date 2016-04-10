@@ -4,10 +4,11 @@ class Roma.Timer
     @minutes = 0
     @seconds = 0
     @started = false
-    @interval = null
-    @intervalTime = 100
     @startingTime = 0
     @totalSeconds = 0
+    @interval = null
+    @intervalSpeed = 100
+    @displaySpeed = 1000     
     
     @events = _.extend {
       onUpdate: ->
@@ -22,11 +23,10 @@ class Roma.Timer
       @totalSeconds = 0
       @interval = Meteor.setInterval =>
         @update()
-      , @intervalTime
+      , @intervalSpeed
       @started = true
       @events.onStart()
       @events.onMinute(@minutes)
-
     
   stop: ->
     Meteor.clearInterval @interval
@@ -51,7 +51,7 @@ class Roma.Timer
 
   updateCounts: ->
     currentTime = new Date().getTime()
-    @totalSeconds = Math.floor((currentTime - @startingTime)/1000)
+    @totalSeconds = Math.floor((currentTime - @startingTime)/@displaySpeed)
     @seconds = @totalSeconds % 60
     @minutes = Math.floor(@totalSeconds / 60)
 
