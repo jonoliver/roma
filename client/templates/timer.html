@@ -1,8 +1,8 @@
 <template name="timer">
   <h1>{{headerText}}</h1>
-  <a id='pomodoro' class='start'>p</a>
-  <a id='short_break' class='start'>s</a>
-  <a id='long_break' class='start'>l</a>
+  <a id='pomodoro' class='start {{pomodoroNextClass}} {{activeClass "pomodoro"}}'>p</a>
+  <a id='short_break' class='start {{shortBreakNextClass}} {{activeClass "short_break"}}'>s</a>
+  <a id='long_break' class='start {{longBreakNextClass}} {{activeClass "long_break"}}'>l</a>
   <h1 id='timer_output'>{{time}}</h1>
   {{#if complete}}
     <p>done</p>

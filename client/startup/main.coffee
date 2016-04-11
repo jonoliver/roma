@@ -7,6 +7,11 @@ init = ->
       document.title = 'go!'
     onComplete: ->
       Session.set 'complete', true
+      if Meteor.user().profile.pomo.type == 'pomodoro'
+        count = Meteor.user().profile.pomo.completed_count || 0
+        count = count + 1
+        Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.completed_count':count}})
+        
       Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.type':null}})
       Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.minute':null}})
       document.title = 'done!'

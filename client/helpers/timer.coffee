@@ -6,10 +6,18 @@ Template.timer.helpers
   headerText: ->
     pomoType = Meteor.user().profile.pomo.type
     return Roma.intervals[pomoType].headerDuringMessage if pomoType
-    # lastPomoType = Meteor.user().profile.pomo.last_type
-    lastPomoType = Session.get 'last_pomo_type'
-    return Roma.intervals[lastPomoType].headerAfterMessage if lastPomoType
+    return Roma.intervals[lastPomoType()].headerAfterMessage if lastPomoType()
     'Get started!'
+  activeClass: (pomoType) ->
+    return '' if Meteor.user().profile.pomo.type == null
+    if Meteor.user().profile.pomo.type == pomoType then 'active' else ''
+  pomodoroNextClass: ->
+    return 'next' if lastPomoType() == undefined
+    nextClass(lastPomoType() != 'pomodoro')
+  longBreakNextClass: ->
+    nextClass(lastPomoType() == 'pomodoro' && isTimeForLongBreak())
+  shortBreakNextClass: ->
+    nextClass(lastPomoType() == 'pomodoro' && !isTimeForLongBreak())
     
 Template.timer.events
   'click #pomodoro': (e)->
@@ -23,9 +31,14 @@ Template.timer.events
 handleStart = (event)->
   id = event.target.id
   Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.type':id}})
-  # Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.last_type':id}})
   Session.set 'last_pomo_type', id
   Roma.timer.reset Roma.intervals[id].duration
-  $('.active').removeClass('active')
-  $(event.target).addClass('active')
 
+lastPomoType = ->
+  Session.get 'last_pomo_type'
+  
+nextClass = (condition) ->
+  if condition && Session.get 'complete' then "next" else ""
+  
+isTimeForLongBreak = ->
+  (Meteor.user().profile.pomo.completed_count % 4) == 0
