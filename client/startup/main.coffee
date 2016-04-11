@@ -11,7 +11,7 @@ init = ->
       notification = new Notification(Roma.intervals[pomoType].headerAfterMessage, {icon: 'img/tomato.png'});
       document.title = 'done!'
 
-      if Meteor.user().profile.pomo.type == 'pomodoro'
+      if pomoType == 'pomodoro'
         count = Meteor.user().profile.pomo.completed_count || 0
         count = count + 1
         Meteor.users.update({_id:Meteor.user()._id}, {$set:{'profile.pomo.completed_count':count}})
