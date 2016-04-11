@@ -33,42 +33,49 @@ a {
   cursor: pointer;
   font-size: $size/2;
   line-height: $size2;
-  
-  &:hover {
-    background: #F8F8F8;    
-    &.active {
-      background: #DDD;
-    }
-  }
-  &.active {
-    background: #DDD;
-    border-color: #CCC;
-  }
 }
 
-@mixin start-button($color) {
+@mixin start-button($color, $animationName) {
   color: $color;
   border: 1px solid $color;
   font-weight: bold;
+
+  @keyframes #{$animationName} {
+    from { }
+    50% { 
+      background: lighten($color, 42);   
+      transform: scale(1.05, 1.05);
+    }
+    to { }
+  }
+  &.next {
+    animation: #{$animationName} 1.5s ease-in-out infinite;
+  }
   &:hover {
     background: lighten($color, 40);
+    animation: none;
+    transform: scale(1.05, 1.05);
   }
   &.active {
     background: $color;
     color: white;
+    
+    &:hover {
+      transform: none;
+    }
   }
 }
 
 #pomodoro {
-  @include start-button($green);
+  @include start-button($green, 'pomoPulse');
 }
 #short_break {
-  @include start-button($yellow);
+  @include start-button($yellow, 'shortBreakPulse');
 }
 #long_break {
-  @include start-button($red);
+  @include start-button($red, 'longBreakPulse');
 }
-
+ 
 #current_user {
   font-size: 24px;
   input {
