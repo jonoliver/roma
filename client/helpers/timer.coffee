@@ -1,6 +1,5 @@
 Template.timer.helpers
   time: -> Session.get 'time'
-  complete: -> Session.get 'complete'
   headerText: ->
     return Roma.intervals[currentPomoType()].headerDuringMessage if currentPomoType()
     return Roma.intervals[lastPomoType()].headerAfterMessage if lastPomoType()
