@@ -15,6 +15,7 @@ Template.timer.events
   'click #pomodoro': (e) ->
     handleStart e
     Meteor.call 'clearMessages'
+    Meteor.call 'setDoNotDisturb'
   'click #short_break': (e) -> 
     handleStart e
   'click #long_break': (e) -> 

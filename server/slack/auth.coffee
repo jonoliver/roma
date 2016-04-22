@@ -14,8 +14,7 @@ Roma.Auth =
       console.log error, response.content
       content = JSON.parse(response.content)
       
-      # set snooze temporarily for fun
-      url = "https://slack.com/api/dnd.setSnooze?token=#{content.access_token}&num_minutes=1"
-      console.log url
-      HTTP.call 'GET', url, (error, response) ->
-        console.log error, response.content
+      if (content.ok)
+        console.log 'Meteor user id:'
+        console.log Meteor.userId()
+        Meteor.users.update({_id:Meteor.userId()}, {$set:{'profile.slack.access_token':content.access_token}})
