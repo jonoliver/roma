@@ -3,4 +3,6 @@ Meteor.methods {
     Meteor.users.update({_id:user_id}, { $push:{"messages":message}}, {multi: true} )
   'clearMessages':  ->
     Meteor.users.update({_id:Meteor.userId()}, { $unset: {"messages" : ""} })
+  'authorize': (code) ->
+    Roma.Auth.access(code)
 }

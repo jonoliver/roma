@@ -1,5 +1,10 @@
 {
   "public": {
+    "slack": {
+      "client_id": "2161573035.36842814903",
+      "redirect_uri": "http://localhost:5000/auth"
+    },
+    "slackEnabled": true,
     "messagingEnabled": true,
     "testingEnabled": true,
     "testSettings": {
