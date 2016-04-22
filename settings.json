@@ -1,10 +1,6 @@
 {
   "public": {
-    "messagingEnabled": false,
-    "testingEnabled": false,
-    "testSettings": {
-      "timerDuration": 1,
-      "timerSpeed": 10
-    }
+    "messagingEnabled": true,
+    "testingEnabled": false
   }
 }
