@@ -12,11 +12,12 @@
   {{#with usersOnline}}
     <p>{{this.count}} users online</p>
     {{#each this}}
+      <div class="user">
       {{#if profile.avatar}}
-        <img src="{{profile.avatar}}" alt="">
+        <img class='avatar' src="{{profile.avatar}}" alt="">
       {{/if}}
       {{#if profile.name}}
-        <p class='{{messagingClass}}' data-user-id='{{this._id}}'>
+        <p class='name {{messagingClass}}' data-user-id='{{this._id}}'>
           {{profile.name}}
           {{#if profile.pomo.type}}is on a {{friendlyPomoType profile.pomo.type}}{{else}}is a slacker{{/if}}
           {{#if profile.pomo.minute}}for {{profile.pomo.minute}} more minutes{{/if}}
@@ -29,7 +30,8 @@
             <a class="cancel_message">x</a>            
           </form>
         {{/if}}
-      {{/if}}
+      {{/if}}        
+      </div>
     {{/each}}  
   {{/with}}
 </template>

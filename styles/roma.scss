@@ -88,3 +88,16 @@ a {
     width: 200px;
   }
 }
+.user {
+  clear: both;
+  .name {
+    line-height: 44px;
+  }
+}
+.avatar {
+  float: left;
+  margin-right: 10px;
+}
+.notifications {
+  clear: both;
+}

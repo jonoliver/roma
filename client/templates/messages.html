@@ -1,4 +1,5 @@
 <template name="messages">
+  <div class="notifications">
   {{#if isEnabled}}
   {{#unless inPomo}}
     <h3>You have {{messageGroups.length}} messages</h3>
@@ -9,5 +10,6 @@
       {{/each}}
     {{/each}}
   {{/unless}}
-  {{/if}}
+  {{/if}}    
+  </div>
 </template>
