@@ -18,8 +18,9 @@ Template.users.helpers
 
 Template.users.events
   'change [name="name"], blur [name="name"]': (e)-> 
-    Meteor.users.update({_id:Meteor.user()._id}, { $set:{"profile.name":e.target.value}}, {multi: true} )
-    Session.set('edit', false)
+    unless Meteor.user().profile.slack.access_token
+      Meteor.users.update({_id:Meteor.user()._id}, { $set:{"profile.name":e.target.value}}, {multi: true} )
+      Session.set('edit', false)
   'click .edit' : ->
     Session.set('edit', true)
   'click .cancel' : ->

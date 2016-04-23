@@ -17,4 +17,15 @@ Roma.Slack.Auth =
       if (content.ok)
         console.log 'Meteor user id:'
         console.log Meteor.userId()
+        
         Meteor.users.update({_id:Meteor.userId()}, {$set:{'profile.slack.access_token':content.access_token}})
+        
+        Roma.Slack.API.usersInfo(content.user_id, (content) ->
+          slackUser = content.user
+          console.log 'slackUser'
+          console.log slackUser
+          Meteor.users.update({_id:Meteor.userId()}, {$set:{
+            'profile.name': slackUser.name
+            'profile.avatar': slackUser.profile.image_48
+          }})
+        )

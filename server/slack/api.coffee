@@ -9,11 +9,18 @@ Roma.Slack.API =
       params: { num_minutes: num_minutes }
     }
 
-  call: (settings) ->
+  usersInfo: (userId, callback) ->
+    @call {
+      endpoint: "users.info"
+      params: { user: userId }
+    }, callback
+    
+  call: (settings, callback = ->) ->
     params = @params settings.params
     url = "https://slack.com/api/#{settings.endpoint}"
     HTTP.call 'GET', url, params, (error, response) ->
       console.log error, response.content
+      callback(JSON.parse response.content)
     
   params: (params) -> params: _.extend { token: accessToken() }, params
     

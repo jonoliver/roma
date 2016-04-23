@@ -5,6 +5,6 @@ Template.slack.helpers
       client_id: Meteor.settings.public.slack.client_id
       redirect_uri: Meteor.settings.public.slack.redirect_uri
       team: "POMIET"
-      scope: ["dnd:write", "dnd:read"]
+      scope: ["dnd:write", "dnd:read", "users:read"]
     query = $.param(params, true)
     "https://slack.com/oauth/authorize?#{query}"

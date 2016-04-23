@@ -12,6 +12,9 @@
   {{#with usersOnline}}
     <p>{{this.count}} users online</p>
     {{#each this}}
+      {{#if profile.avatar}}
+        <img src="{{profile.avatar}}" alt="">
+      {{/if}}
       {{#if profile.name}}
         <p class='{{messagingClass}}' data-user-id='{{this._id}}'>
           {{profile.name}}
