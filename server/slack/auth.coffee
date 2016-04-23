@@ -1,4 +1,4 @@
-Roma.Auth =
+Roma.Slack.Auth =
   access: (code) ->
     console.log 'calling Roma.Auth.access'
 

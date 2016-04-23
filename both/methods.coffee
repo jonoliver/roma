@@ -4,11 +4,7 @@ Meteor.methods {
   'clearMessages':  ->
     Meteor.users.update({_id:Meteor.userId()}, { $unset: {"messages" : ""} })
   'authorize': (code) ->
-    Roma.Auth.access(code)
-  'setDoNotDisturb': ->
-    token = Meteor.user().profile.slack.access_token
-    return unless token
-    url = "https://slack.com/api/dnd.setSnooze?token=#{token}&num_minutes=25"
-    HTTP.call 'GET', url, (error, response) ->
-      console.log error, response.content
+    Roma.Slack.Auth.access(code)
+  'setSnooze': -> Roma.Slack.API.setSnooze 25
+  'endDnd': -> Roma.Slack.API.endDnd()
 }
