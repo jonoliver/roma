@@ -9,6 +9,13 @@
         <p>{{ this.message }}</p>
       {{/each}}
     {{/each}}
+    <h3>You have {{notifications.length}} notifications</h3>
+    {{#each notifications}}
+      <h4>{{ this.name }}</h4>
+      {{#each messages }}
+        <p>{{ this.message }}</p>
+      {{/each}}
+    {{/each}}
   {{/unless}}
   {{/if}}    
   </div>

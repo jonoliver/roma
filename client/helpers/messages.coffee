@@ -5,6 +5,9 @@ Template.messages.helpers
       user = Meteor.users.findOne({'_id': fromUserId})
       {name: user.profile.name, messages: messages}
     messages
+  notifications: ->
+    groupedMessages = _.groupBy Session.get('notifications'), 'fromUser'
+    _.map groupedMessages, (messages, fromUserId) -> { name: fromUserId, messages: messages }
   inPomo: ->
     Meteor.user().profile.pomo.type == "pomodoro"
   isEnabled: ->
