@@ -18,7 +18,10 @@ Roma.Slack.Auth =
         console.log 'Meteor user id:'
         console.log Meteor.userId()
         
-        Meteor.users.update({_id:Meteor.userId()}, {$set:{'profile.slack.access_token':content.access_token}})
+        Meteor.users.update({_id:Meteor.userId()}, {$set:{
+          'profile.slack.access_token':content.access_token
+          'profile.slack.user_id':content.user_id
+        }})
         
         Roma.Slack.API.usersInfo(content.user_id, (content) ->
           slackUser = content.user
