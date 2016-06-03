@@ -1,0 +1,20 @@
+rtm_url = "https://slack.com/api/rtm.start?token=xoxp-2161573035-2211583441-36801754787-f1cbfc0c8a&simple_latest&no_unreads"
+$.get(rtm_url, function(res){
+ws=new WebSocket(res.url); 
+console.log(ws); 
+ws.onopen = function(e){console.log(e);} 
+ws.onmessage = function(e){console.log(e); onMessage(e)}
+});
+
+onMessage = function(message){
+  data = JSON.parse(message.data);
+  console.log(data)
+  // data.type, data.channel, data.user, data.text
+  if (data.type == 'message' && isMention(data.text))
+    console.log(data.text);
+}
+
+function isMention(msg) {
+  return msg.indexOf("<@U0267H5CZ>") > -1
+}
+//<@U0267H5CZ>
